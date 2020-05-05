@@ -1,14 +1,13 @@
 def max_heapify(arr, node):
-    def swap(arr, node):
+    if arr[node-1] < arr[2*node-1]:
         temp = arr[node-1]
         arr[node-1] = arr[2*node-1]
         arr[2*node-1] = temp
-        return arr
-    if arr[node-1] < arr[2*node-1]:
-        arr = swap(arr, node)
-    if 2*node + 1 < len(arr):
+    if 2*node < len(arr):
         if arr[node-1] < arr[2*node]:
-            arr = swap(arr, node)
+            temp = arr[node-1]
+            arr[node-1] = arr[2*node]
+            arr[2*node] = temp
     return arr
 
 
@@ -19,5 +18,5 @@ def build_max_heap(arr):
 
 
 if __name__ == "__main__":
-    arr = [2, 4]
+    arr = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
     print(build_max_heap(arr))
