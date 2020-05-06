@@ -14,6 +14,26 @@ class BinaryTree:
         self.root = None
         self.size = 0
 
+    def find_node_(self, node, key):
+        if node:
+            if node.key == key:
+                return True
+            if node.key > key:
+                if self.find_node_(node.left, key):
+                    return True
+            else:
+                if self.find_node_(node.right, key):
+                    return True
+        return False
+
+    def find_node(self, key):
+        if self.root == key:
+            return True
+        else:
+            if self.find_node_(self.root, key):
+                return True
+        return False
+
     def insert_node(self, node, key):
         if node.key > key:
             if node.left is None:
