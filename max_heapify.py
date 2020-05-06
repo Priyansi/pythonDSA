@@ -1,8 +1,9 @@
 def max_heapify(arr, node):
-    if arr[node-1] < arr[2*node-1]:
-        temp = arr[node-1]
-        arr[node-1] = arr[2*node-1]
-        arr[2*node-1] = temp
+    if 2*node-1 < len(arr):
+        if arr[node-1] < arr[2*node-1]:
+            temp = arr[node-1]
+            arr[node-1] = arr[2*node-1]
+            arr[2*node-1] = temp
     if 2*node < len(arr):
         if arr[node-1] < arr[2*node]:
             temp = arr[node-1]
