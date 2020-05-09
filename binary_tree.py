@@ -91,14 +91,14 @@ class BinaryTree:
             if traversal == 'post':
                 self.print_postorder_node(self.root)
             if traversal == 'level':
-                for level in range(1, self.height()+1):
+                for level in range(self.height()+1):
                     self.print_levelorder_node(self.root, level)
 
 
-tree = BinaryTree()
-tree.insert(4)
-tree.insert(5)
-tree.insert(2)
-tree.insert(1)
-tree.insert(3)
-tree.print_tree()
+if __name__ == "__main__":
+    arr = [4, 2, 10, 1, 6, 3, 12, 5, 11, 7, 13, 8]
+    # output => 4 2 10 1 3 6 12 5 7 11 13 (forms a BST)
+    tree = BinaryTree()
+    for key in arr:
+        tree.insert(key)
+    tree.print_tree()
